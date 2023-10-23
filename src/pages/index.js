@@ -14,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex items-center text-dark w-full min-h-screen">
-        <Layout className='pt-0'>
+        <div className='w-full h-full inline-block z-0 bg-light p-32'>
           <div className='flex items-center justify-between w-full'>
             <div className='w-1/2'>
               <Image src={profilePic} alt="CodeBucks" className='w-full h-auto'/>
@@ -56,7 +56,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </Layout>
+        </div>
       </main>
     </>
   )
