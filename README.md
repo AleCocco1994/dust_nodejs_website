@@ -4,7 +4,9 @@
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -D
-sudo apt-get install yarn nodejs
+```
+```bash
+sudo apt-get install npm yarn nodejs
 ```
 
 Check the installation of nodejs and npm by doing 
