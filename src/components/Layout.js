@@ -7,4 +7,4 @@ const Layout = ({children, className=""}) => {
         </div> 
     )
 }
-export default Layout;
+export default Layout; 

@@ -16,7 +16,7 @@ const CustomLink = ({href, title, className=""}) => {
                     h-[1px] inline-block w-full bg-dark 
                     absolute left-0 -bottom-0.5 
                     group-hover:w-full transition-[width] ease duration-3000
-                    ${router.asPath === href ? 'w-full' : 'w-[0px]'} 
+                    ${router.asPath === href ? 'w-full' : 'w-0'} 
                     `}>
                 &nbsp;
             </span>
@@ -61,7 +61,7 @@ const NavBar = () => {
 
             </nav> 
             <div className='absolute left-[50%] top-2 translate-x-[-50%]'>
-                <div className="flex items-center justify-center mt-2">
+                <div className="flex items-center justify-center mt-2 flex-wrap">
                 <MotionLink
                     href="/"
                     className="w-16 h-16 bg-dark text-light flex items-center 
