@@ -18,6 +18,7 @@ npm -v
 Enable tailwindcss
 ```bash
 sudo npm install -D tailwindcss postcss autoprefixer
+sudo npm install next --save
 ```
 Clone the repository and inside the folder do: 
 ```bash
