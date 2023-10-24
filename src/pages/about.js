@@ -4,6 +4,7 @@ import AnimatedText from "@/components/AnimatedText";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/xv15_v7-removebg.png"; 
 import {useInView, useSpring, useMotionValue } from "framer-motion";
+import Skills from "@/components/Skills";
 
 const AnimatedNumber = ({value}) => {
 const ref = useRef(null);
@@ -11,6 +12,8 @@ const ref = useRef(null);
 const motionValue = useMotionValue(0);
 const springValue = useSpring(motionValue, {duration : 5000 })
 const isInView = useInView(ref, {once: true});
+
+// counter animation
 
 useEffect(() => {
     if(isInView){
@@ -86,6 +89,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
+                    <Skills/>
                 </div>
             </main>
         </>
