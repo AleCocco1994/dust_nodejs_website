@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 const Skill = ({ name, x, y }) => {
 
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const videoRef = useRef(null);
 
     const handleVideoClick = () => {
@@ -17,15 +18,14 @@ const Skill = ({ name, x, y }) => {
         setIsPlaying(!isPlaying);
     };
 
-    const handlePauseClick = () => {
-        videoRef.current.pause();
-        setIsPlaying(false);
-    };
-
+    const handleVideoLoad = () => {
+        setIsLoading(false);
+        };
     return (
         <motion.div
             className="flex items-center justify-center rounded-3xl font-semibold bg-blue-800 text-light p-8 py-3 px-3 shadow-dark cursor-pointer absolute"
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             initial={{ x: 0, y: 0 }}
             whileInView={{ x: x, y: y }}
             viewport={{ once: true }}
@@ -33,10 +33,13 @@ const Skill = ({ name, x, y }) => {
         >
             <div className="relative">
                 <video
-                    className="w-[600px]"
+                    className={`w-[600px] ${isPlaying ? "w-[800px] transition-all duration-500 ease-in-out" : ""} ||  
+                                ${isLoading ? "opacity-0" : "opacity-100"} ||
+                                        ${!isPlaying ? "w-[400px]" : ""}`}
                     src={name}
                     onClick={handleVideoClick}
                     ref={videoRef}
+                    onProgress={handleVideoLoad}
                 />
                 {!isPlaying && (
                     <button
@@ -53,11 +56,15 @@ const Skill = ({ name, x, y }) => {
                         </svg>
                     </button>
                 )}
-                
+                {isLoading && (
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gray-300">
+                        <div className="h-full bg-blue-500" style={{ width: `${videoRef.current?.buffered?.end(0) / videoRef.current?.duration * 100}%` }}></div>
+                    </div>
+                )}
                 {isPlaying && (
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
                 )}
-                
+
             </div>
         </motion.div>
     );
