@@ -33,9 +33,7 @@ const Skill = ({ name, x, y }) => {
         >
             <div className="relative">
                 <video
-                    className={`w-[600px] ${isPlaying ? "w-[800px] transition-all duration-500 ease-in-out" : ""} ||  
-                                ${isLoading ? "opacity-0" : "opacity-100"} ||
-                                        ${!isPlaying ? "w-[400px]" : ""}`}
+                    className={`w-[600px] ${isPlaying ? "w-[800px] transition-all duration-500 ease-in-out" : ""}`}
                     src={name}
                     onClick={handleVideoClick}
                     ref={videoRef}
@@ -56,11 +54,7 @@ const Skill = ({ name, x, y }) => {
                         </svg>
                     </button>
                 )}
-                {isLoading && (
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gray-300">
-                        <div className="h-full bg-blue-500" style={{ width: `${videoRef.current?.buffered?.end(0) / videoRef.current?.duration * 100}%` }}></div>
-                    </div>
-                )}
+                
                 {isPlaying && (
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
                 )}
